@@ -35,4 +35,15 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+
+
+Route::middleware('auth:admin')->group(function () {
+    Route::get('/admin/dashboard', function () {
+        return Inertia::render('Admin/Dashboard');
+    })->name('admin.dashboard');
+
+    Route::get('/admin/profile', [ProfileController::class, 'edit'])->name('admin.profile.edit');
+});
+
+require __DIR__ . '/auth.php';
+require __DIR__ . '/AdminAuth.php';
