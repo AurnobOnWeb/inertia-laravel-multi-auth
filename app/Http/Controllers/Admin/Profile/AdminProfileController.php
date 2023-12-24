@@ -39,7 +39,7 @@ class AdminProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit');
+        return Redirect::route('admin.profile.edit');
     }
 
     /**
