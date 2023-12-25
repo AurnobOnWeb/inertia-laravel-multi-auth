@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\Auth\AdminRegisteredUserController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest:admin')->group(function () {
-    Route::get('admin/login', [AdminAuthenticatedSessionController::class, 'create'])
+    Route::get('/admin/login', [AdminAuthenticatedSessionController::class, 'create'])
         ->name('admin.login');
 
     Route::post('admin/login', [AdminAuthenticatedSessionController::class, 'store']);
