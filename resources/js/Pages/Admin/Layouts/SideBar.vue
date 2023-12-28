@@ -17,7 +17,7 @@
             </div>
             <nav
                 aria-label="Main"
-                class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto"
+                class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto mt-2"
             >
                 <Dropdown label="Dashboards">
                     <template #icon>
@@ -37,27 +37,18 @@
                         </svg>
                     </template>
                     <template #item>
-                        <a
-                            href="index.html"
-                            role="menuitem"
-                            class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
-                        >
-                            Default
-                        </a>
-                        <a
-                            href="#"
-                            role="menuitem"
-                            class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                        >
-                            Project Management (soon)
-                        </a>
-                        <a
-                            href="#"
-                            role="menuitem"
-                            class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                        >
-                            E-Commerce (soon)
-                        </a>
+                        <DropdownButton
+                            href="/ko"
+                            label="Default"
+                        ></DropdownButton>
+                        <DropdownButton
+                            href="/ko"
+                            label="ecommerce"
+                        ></DropdownButton>
+                        <DropdownButton
+                            href="/manage"
+                            label="Project Management (soon)"
+                        ></DropdownButton>
                     </template>
                 </Dropdown>
 
@@ -77,7 +68,7 @@
                 <!-- Sidebar Footer -->
                 <div class="flex-shrink-0 px-2 py-4 space-y-2">
                     <button
-                        @click="openSettingsPanel"
+                        @click="Settings.isSettings = true"
                         type="button"
                         class="flex items-center justify-center w-full px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary-dark focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark"
                     >
@@ -105,12 +96,8 @@
     </aside>
 </template>
 
-<script>
+<script setup>
 import Dropdown from "@/Pages/Admin/Component/Dropdown.vue";
-
-export default {
-    components: {
-        Dropdown,
-    },
-};
+import { Settings } from "@/Pages/Admin/store/Settings.js";
+import DropdownButton from "../Component/DropdownButton.vue";
 </script>

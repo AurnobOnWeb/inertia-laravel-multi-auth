@@ -1,7 +1,7 @@
 import { ref } from "vue";
 
 export const Panel = ref({
-    isPanelOpen: true,
+    isPanelOpen: false,
     SetIsOpened(value) {
         Panel.value.isPanelOpen = value;
     },
